@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 type Inputs = {
@@ -14,6 +15,7 @@ const api = axios.create({
 });
 
 export default function App() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const {
     register,
@@ -30,10 +32,14 @@ export default function App() {
       data,
     });
     const { username, password } = data;
-    api.post("/login", {
-      username,
-      password,
-    });
+    api
+      .post("/login", {
+        username,
+        password,
+      })
+      .then(() => {
+        navigate("/home");
+      });
   };
 
   return (
