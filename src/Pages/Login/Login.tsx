@@ -11,7 +11,7 @@ type Inputs = {
 };
 
 const api = axios.create({
-  baseURL: "http://cheapskate.pythonanywhere.com",
+  baseURL: "https://cheapskate.pythonanywhere.com",
 });
 
 export default function App() {
