@@ -17,6 +17,7 @@ const api = axios.create({
 export default function App() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
+  const [loginFaliure, setLoginFaliure] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -39,6 +40,12 @@ export default function App() {
       })
       .then(() => {
         navigate("/home");
+      })
+      .then(() => {
+        setLoginFaliure(false);
+      })
+      .catch(() => {
+        setLoginFaliure(true);
       });
   };
 
@@ -54,8 +61,12 @@ export default function App() {
     >
       <h1>Welcome to cheapskate</h1>
       <Box sx={{ marginTop: "25em" }} gap={4}>
+        {loginFaliure && (
+          <Box sx={{ textAlign: "center", color: "#870101" }}>
+            <h2>Login Attempt Failed</h2>
+          </Box>
+        )}
         <form onSubmit={handleSubmit(onSubmit)} className="wrap">
-          {/* register your input into the hook by invoking the "register" function */}
           <input
             type="text"
             placeholder="username"
@@ -65,14 +76,12 @@ export default function App() {
           <div className="bar">
             <i></i>
           </div>
-          {/* include validation with required or other standard HTML validation rules */}
           <input
             type="password"
             placeholder="password"
             {...register("password", { required: true })}
             className="input"
           />
-          {/* errors will return when field validation fails  */}
           {errors.password && <span>This field is required</span>}
           <div className="sign-in">
             <button type="submit" className="sign-in">
