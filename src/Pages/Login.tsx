@@ -5,9 +5,13 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import "./Login.css";
 
 type Inputs = {
-  example: string;
-  exampleRequired: string;
+  username: string;
+  password: string;
 };
+
+const api = axios.create({
+  baseURL: "http://cheapskate.pythonanywhere.com",
+});
 
 export default function App() {
   const [formData, setFormData] = useState({});
@@ -21,12 +25,14 @@ export default function App() {
     console.log(formData);
   }, [formData]);
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
     setFormData({
       data,
     });
-    await axios.post("cheapskate.pythonanywhere.com/login", {
-      data,
+    const { username, password } = data;
+    api.post("/login", {
+      username,
+      password,
     });
   };
 
@@ -47,7 +53,7 @@ export default function App() {
           <input
             type="text"
             placeholder="username"
-            {...(register("example"), { required: true })}
+            {...register("username", { required: true })}
             className="input"
           />
 
@@ -55,11 +61,11 @@ export default function App() {
           <input
             type="password"
             placeholder="password"
-            {...register("exampleRequired", { required: true })}
+            {...register("password", { required: true })}
             className="input"
           />
           {/* errors will return when field validation fails  */}
-          {errors.exampleRequired && <span>This field is required</span>}
+          {errors.password && <span>This field is required</span>}
 
           <input type="submit" />
         </form>
