@@ -1,3 +1,9 @@
 .App {
   text-align: center;
+
+}
+
+.App .login-page {
+  display: flex;
+  flex-direction: column;
 }
