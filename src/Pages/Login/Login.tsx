@@ -54,7 +54,7 @@ export default function App() {
     >
       <h1>Welcome to cheapskate</h1>
       <Box sx={{ marginTop: "25em" }} gap={4}>
-        <form onSubmit={handleSubmit(onSubmit)} className="login-form">
+        <form onSubmit={handleSubmit(onSubmit)} className="wrap">
           {/* register your input into the hook by invoking the "register" function */}
           <input
             type="text"
@@ -62,7 +62,9 @@ export default function App() {
             {...register("username", { required: true })}
             className="input"
           />
-
+          <div className="bar">
+            <i></i>
+          </div>
           {/* include validation with required or other standard HTML validation rules */}
           <input
             type="password"
@@ -72,8 +74,11 @@ export default function App() {
           />
           {/* errors will return when field validation fails  */}
           {errors.password && <span>This field is required</span>}
-
-          <input type="submit" />
+          <div className="sign-in">
+            <button type="submit" className="sign-in">
+              Submit
+            </button>
+          </div>
         </form>
       </Box>
     </Box>
