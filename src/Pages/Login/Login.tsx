@@ -1,8 +1,10 @@
 import { Box } from "@mui/material";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../../constants";
+import { LoginContext } from "../../context/loginContext";
 import "./Login.css";
 
 type Inputs = {
@@ -11,27 +13,20 @@ type Inputs = {
 };
 
 const api = axios.create({
-  baseURL: "https://cheapskate.pythonanywhere.com",
+  baseURL,
 });
 
 export default function App() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({});
   const [loginFaliure, setLoginFaliure] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
+  const { logIn } = useContext(LoginContext);
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    setFormData({
-      data,
-    });
     const { username, password } = data;
     api
       .post("/login", {
@@ -39,9 +34,8 @@ export default function App() {
         password,
       })
       .then(() => {
-        navigate("/home");
-      })
-      .then(() => {
+        logIn(username, password);
+        navigate("/dashboard");
         setLoginFaliure(false);
       })
       .catch(() => {
