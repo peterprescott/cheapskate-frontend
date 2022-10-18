@@ -1,0 +1,20 @@
+.Nav {
+    margin: 2em;
+    padding: 2em;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+}
+
+.Nav a {
+    text-decoration: none;
+    padding-right: 2em;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 5em;
+    padding-right: 5em;
+}

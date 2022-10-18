@@ -33,10 +33,11 @@ export default function App() {
         username,
         password,
       })
-      .then(() => {
+      .then((res) => {
         logIn(username, password);
         navigate("/dashboard");
         setLoginFaliure(false);
+        localStorage.setItem("user", res.data);
       })
       .catch(() => {
         setLoginFaliure(true);
@@ -54,7 +55,7 @@ export default function App() {
       className="login-page"
     >
       <h1>Welcome to cheapskate</h1>
-      <Box sx={{ marginTop: "25em" }} gap={4}>
+      <Box gap={4}>
         {loginFaliure && (
           <Box sx={{ textAlign: "center", color: "#870101" }}>
             <h2>Login Attempt Failed</h2>

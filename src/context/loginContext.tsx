@@ -7,6 +7,8 @@ type LoginContextType = {
   password: string;
   logIn: (username: string, password: string) => void;
   logOut: () => void;
+  userToken: string;
+  assertLoggedIn: () => void;
 };
 
 export const LoginContext = createContext<LoginContextType>({
@@ -20,6 +22,8 @@ export const LoginContext = createContext<LoginContextType>({
   logOut: () => {
     console.log();
   },
+  userToken: "",
+  assertLoggedIn: () => console.log(),
 });
 
 interface LoginManagerProps {
@@ -30,6 +34,7 @@ export const LoginManager = ({ children }: LoginManagerProps) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [contextusername, setUsername] = useState("");
   const [contextPassword, setPassword] = useState("");
+  const [userToken, setUserToken] = useState("");
   const [Admin, setAdmin] = useState(false);
 
   function logIn(username: string, password: string) {
@@ -38,11 +43,20 @@ export const LoginManager = ({ children }: LoginManagerProps) => {
     setLoggedIn(true);
   }
 
+  function assertLoggedIn() {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setLoggedIn(true);
+    }
+  }
+
   function logOut() {
     setLoggedIn(false);
     setUsername("");
     setPassword("");
     setAdmin(false);
+    setUserToken("");
+    localStorage.clear();
   }
 
   const context = {
@@ -52,6 +66,8 @@ export const LoginManager = ({ children }: LoginManagerProps) => {
     password: contextPassword,
     logIn: logIn,
     logOut: logOut,
+    userToken: userToken,
+    assertLoggedIn: assertLoggedIn,
   };
 
   return (
