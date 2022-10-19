@@ -9,6 +9,13 @@
       background: #448ed3 ;
       font-family: "Lato" ;
   }
+
+  .login-page {
+    display: "flex";
+    justify-content: "center";
+    align-items: "center";
+    flex-direction: "column";
+  }
   .wrap {
       width:250px;
       height: auto;

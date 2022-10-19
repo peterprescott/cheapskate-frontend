@@ -4,7 +4,7 @@ import "./App.css";
 import { LoginContext } from "./context/loginContext";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import { Layout } from "./Pages/Layout/Layout";
-import Login from "./Pages/Login/Login";
+import { Login } from "./Pages/Login/Login";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 
 function App() {

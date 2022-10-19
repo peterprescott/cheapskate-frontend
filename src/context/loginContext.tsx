@@ -1,29 +1,30 @@
 import React, { createContext, useState } from "react";
 
-type LoginContextType = {
-  isLoggedIn: boolean;
-  isAdmin: boolean;
+type User = {
   username: string;
   password: string;
-  logIn: (username: string, password: string) => void;
+  token: string;
+  isAdmin?: boolean;
+} | null;
+
+type LoginContextType = {
+  isLoggedIn: boolean;
+  logIn: (username: string, password: string, token: string) => void;
   logOut: () => void;
-  userToken: string;
   assertLoggedIn: () => void;
+  user: User | null;
 };
 
 export const LoginContext = createContext<LoginContextType>({
   isLoggedIn: false,
-  isAdmin: false,
-  username: "",
-  password: "",
   logIn: () => {
     console.log();
   },
   logOut: () => {
     console.log();
   },
-  userToken: "",
   assertLoggedIn: () => console.log(),
+  user: null,
 });
 
 interface LoginManagerProps {
@@ -32,15 +33,12 @@ interface LoginManagerProps {
 
 export const LoginManager = ({ children }: LoginManagerProps) => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [contextusername, setUsername] = useState("");
-  const [contextPassword, setPassword] = useState("");
-  const [userToken, setUserToken] = useState("");
-  const [Admin, setAdmin] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
 
-  function logIn(username: string, password: string) {
-    setUsername(username);
-    setPassword(password);
+  function logIn(username: string, password: string, token: string) {
     setLoggedIn(true);
+    setUser({ username, password, token });
+    console.log({ username, password, token });
   }
 
   function assertLoggedIn() {
@@ -51,22 +49,16 @@ export const LoginManager = ({ children }: LoginManagerProps) => {
   }
 
   function logOut() {
+    setUser(null);
     setLoggedIn(false);
-    setUsername("");
-    setPassword("");
-    setAdmin(false);
-    setUserToken("");
     localStorage.clear();
   }
 
   const context = {
+    user: user,
     isLoggedIn: loggedIn,
-    isAdmin: Admin,
-    username: contextusername,
-    password: contextPassword,
     logIn: logIn,
     logOut: logOut,
-    userToken: userToken,
     assertLoggedIn: assertLoggedIn,
   };
 

@@ -1,5 +1,4 @@
-import React from "react";
-import Login from ".././Pages/Login/Login";
+import { Login } from ".././Pages/Login/Login";
 import Dashboard from ".././Pages/Dashboard/Dashboard";
 import PageNotFound from ".././Pages/PageNotFound/PageNotFound";
 
