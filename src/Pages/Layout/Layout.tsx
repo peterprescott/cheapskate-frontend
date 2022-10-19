@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../../context/loginContext";
 import "./Layout.css";
 
 export const Layout = () => {
-  const { isLoggedIn } = useContext(LoginContext);
+  const navigate = useNavigate();
+  const { isLoggedIn, logOut } = useContext(LoginContext);
   return (
     <>
       <nav className="Nav">
@@ -14,7 +15,18 @@ export const Layout = () => {
         <li>
           <Link to="/dashboard">Dashboard</Link>
         </li>
-        <li>{isLoggedIn && <li>You are logged in!</li>}</li>
+        <li>
+          {isLoggedIn && (
+            <button
+              onClick={() => {
+                logOut();
+                navigate("/");
+              }}
+            >
+              Logout
+            </button>
+          )}
+        </li>
       </nav>
       <main>
         <Outlet />
