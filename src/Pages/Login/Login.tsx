@@ -17,6 +17,7 @@ const api = axios.create({
 });
 
 export default function App() {
+  const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
   const [loginFaliure, setLoginFaliure] = useState<boolean>(false);
   const {
@@ -34,7 +35,9 @@ export default function App() {
         password,
       })
       .then((res) => {
+        setLoading(true);
         logIn(username, password);
+        setLoading(false);
         navigate("/dashboard");
         setLoginFaliure(false);
         localStorage.setItem("user", res.data);
@@ -59,6 +62,11 @@ export default function App() {
         {loginFaliure && (
           <Box sx={{ textAlign: "center", color: "#870101" }}>
             <h2>Login Attempt Failed</h2>
+          </Box>
+        )}
+        {loading && (
+          <Box sx={{ textAlign: "center", color: "#b6ee65" }}>
+            <h2>Loading...</h2>
           </Box>
         )}
         <form onSubmit={handleSubmit(onSubmit)} className="wrap">
