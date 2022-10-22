@@ -4,17 +4,23 @@
     font-weight: 400;
     src: local('Lato Regular'), local('Lato-Regular'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
   }
-  
-  body {
-      background: #448ed3 ;
-      font-family: "Lato" ;
+
+  h1 {
+    font-size: 4em;
   }
 
+  @media screen and (max-width: 375px) {
+    h1 {
+        font-size: 2em;
+    }
+  }
+  
   .login-page {
-    display: "flex";
-    justify-content: "center";
-    align-items: "center";
-    flex-direction: "column";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center
   }
   .wrap {
       width:250px;
