@@ -86,3 +86,8 @@
       border-bottom: 3px solid #307d63;
       cursor: pointer;
   }
+
+  .wrap button:hover {
+    background: #d6ff9e;
+    transition: 0.3s all ease;
+  }
