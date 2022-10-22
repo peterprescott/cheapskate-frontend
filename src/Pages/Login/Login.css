@@ -30,15 +30,17 @@
   }
   .wrap input {
       border: none;
-      background: #fff;
-      font-family:Lato ;
-      font-weight:700 ;
       display: block;
       height: 40px;
       outline: none;
       width: calc(100% - 24px) ;
       margin: auto;
       padding: 6px 12px 6px 12px;
+  }
+
+  .wrap input:focus {
+    border-bottom: 3px solid #b6ee65;
+    transition: 0.3s all ease;
   }
   .bar {
       width: 100%;
@@ -58,15 +60,6 @@
   .wrap input[type="password"] {
       border-radius: 0px 0px 7px 7px ;
   }
-  .forgot_link {
-      color: #83afdf ;
-      color: #83afdf;
-      text-decoration: none;
-      font-size: 11px;
-      position: relative;
-      left: 193px;
-      top: -36px;
-  }
   
   .sign-in {
     margin-top: 20px
@@ -78,7 +71,7 @@
       text-decoration: center;
       border: none;
       color: #51771a;
-    margin-top:-5px;
+      margin-top:-5px;
       padding-top: 14px;
       padding-bottom: 14px;
       outline: none;
