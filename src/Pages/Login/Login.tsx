@@ -79,8 +79,18 @@ export function Login() {
             />
             {errors.password && <span>This field is required</span>}
             <div className="sign-in">
-              <button type="submit" className="sign-in">
+              <button type="submit" className="action-btn submit">
                 Submit
+              </button>
+            </div>
+            <div>
+              <h3>Not a member?</h3>
+              <button
+                type="submit"
+                className="action-btn signup"
+                onClick={() => navigate("/signup")}
+              >
+                Signup
               </button>
             </div>
           </form>

@@ -6,6 +6,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import { Layout } from "./Pages/Layout/Layout";
 import { Login } from "./Pages/Login/Login";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound";
+import Signup from "./Pages/Signup/Signup";
 
 function App() {
   const { assertLoggedIn } = useContext(LoginContext);
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route key="/login" path="/" element={<Login />} />
           <Route key="/dashboard" path="/dashboard" element={<Dashboard />} />
+          <Route key="/signup" path="/signup" element={<Signup />} />
           <Route key="/*" path="/*" element={<PageNotFound />} />
         </Route>
       </Routes>

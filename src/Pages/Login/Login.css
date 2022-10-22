@@ -64,10 +64,9 @@
   .sign-in {
     margin-top: 20px
   }
-  .wrap button {
+  .wrap .action-btn {
       width: 100%;
       border-radius: 7px;
-      background: #b6ee65;
       text-decoration: center;
       border: none;
       color: #51771a;
@@ -84,3 +83,10 @@
     background: #d6ff9e;
     transition: 0.3s all ease;
   }
+
+ .submit {
+    background: #b6ee65;
+ }
+ .signup {
+    background: #ffa6f9;
+ }
