@@ -34,7 +34,7 @@ export function Login() {
         localStorage.setItem("user", res.data);
         const { access_token } = res.data;
         setLoading(true);
-        logIn(username, password, access_token);
+        logIn(username, access_token);
         setLoading(false);
         navigate("/dashboard");
         setLoginFaliure(false);

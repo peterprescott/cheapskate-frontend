@@ -2,14 +2,13 @@ import React, { createContext, useState } from "react";
 
 type User = {
   username: string;
-  password: string;
   token: string;
   isAdmin?: boolean;
 } | null;
 
 type LoginContextType = {
   isLoggedIn: boolean;
-  logIn: (username: string, password: string, token: string) => void;
+  logIn: (username: string, token: string) => void;
   logOut: () => void;
   assertLoggedIn: () => void;
   user: User | null;
@@ -35,10 +34,9 @@ export const LoginManager = ({ children }: LoginManagerProps) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState<User | null>(null);
 
-  function logIn(username: string, password: string, token: string) {
+  function logIn(username: string, token: string) {
     setLoggedIn(true);
-    setUser({ username, password, token });
-    console.log({ username, password, token });
+    setUser({ username, token });
   }
 
   function assertLoggedIn() {
