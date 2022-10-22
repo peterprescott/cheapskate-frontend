@@ -4,6 +4,9 @@ This is part of the
 [fullstack-cheapskate](https://github.com/peterprescott/fullstack-cheapskate)
 project.
 
+# deployed at
+https://fullstackcheapskate.netlify.app/
+
 ### `npm start`
 
 Runs the app in the development mode.\
