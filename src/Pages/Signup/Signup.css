@@ -24,6 +24,5 @@
     height: 40px;
     outline: none;
     width: calc(100% - 24px) ;
-    margin: auto;
     padding: 6px 12px 6px 12px;
 }

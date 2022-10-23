@@ -6,6 +6,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import { Layout } from "./Pages/Layout/Layout";
 import { Login } from "./Pages/Login/Login";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound";
+import Profile from "./Pages/Profile/Profile";
 import Signup from "./Pages/Signup/Signup";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route key="/login" path="/" element={<Login />} />
           <Route key="/dashboard" path="/dashboard" element={<Dashboard />} />
           <Route key="/signup" path="/signup" element={<Signup />} />
+          <Route key="/profile" path="/profile" element={<Profile />} />
           <Route key="/*" path="/*" element={<PageNotFound />} />
         </Route>
       </Routes>

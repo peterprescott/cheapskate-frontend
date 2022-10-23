@@ -5,9 +5,11 @@
     justify-content: flex-start;
     list-style: none;
     align-items: center;
+    background-color: #252954;
+    border-radius: 20px;
 }
 
-.Nav a {
+.Nav li {
     text-decoration: none;
     padding-right: 2em;
 }
@@ -31,7 +33,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-left: 5em;
-    padding-right: 5em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 

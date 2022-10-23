@@ -15,6 +15,11 @@ export const Layout = () => {
         <li>
           <Link to="/dashboard">Dashboard</Link>
         </li>
+        {isLoggedIn && (
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+        )}
         <li>
           {isLoggedIn && (
             <button
