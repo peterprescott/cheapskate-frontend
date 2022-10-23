@@ -5,7 +5,12 @@ This is part of the
 project.
 
 # deployed at
+
 https://fullstackcheapskate.netlify.app/
+
+### `docker compose up`
+
+Runs the app as a docker container and you can visit it at port 3000 on your local machine
 
 ### `npm start`
 
