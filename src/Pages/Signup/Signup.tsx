@@ -24,6 +24,7 @@ export default function Signup() {
         <Box className="names-input">
           <input
             style={{ width: "50%" }}
+            className="sign-up-input"
             id="firstName"
             type="text"
             placeholder="first name"
@@ -31,6 +32,7 @@ export default function Signup() {
           />
           <input
             style={{ width: "50%" }}
+            className="sign-up-input"
             id="lastname"
             type="text"
             placeholder="last name"
@@ -39,18 +41,20 @@ export default function Signup() {
         </Box>
         <input
           id="email"
+          className="sign-up-input"
           type="email"
           placeholder="email"
           {...register("email", { required: true })}
         />
         <input
           id="password"
+          className="sign-up-input"
           type="password"
           placeholder="set a password"
           {...register("password", { required: true })}
         />
         <div className="wrap">
-          <input type="submit" className="action-btn" />
+          <input type="submit" className="action-btn submit" />
         </div>
       </form>
     </Box>

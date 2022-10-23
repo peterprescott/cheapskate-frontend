@@ -13,5 +13,17 @@
 }
 
 .names-input {
-    display: flex
+    display: flex;
+    gap: 5px;
+}
+
+.sign-up-input {
+    border: none;
+    border-radius: 7px;
+    display: block;
+    height: 40px;
+    outline: none;
+    width: calc(100% - 24px) ;
+    margin: auto;
+    padding: 6px 12px 6px 12px;
 }
