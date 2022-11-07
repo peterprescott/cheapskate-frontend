@@ -1,3 +1,4 @@
+import React from "react";
 import { Box } from "@mui/material";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "./Signup.css";
@@ -10,11 +11,7 @@ type Inputs = {
 };
 
 export default function Signup() {
-  const {
-    register,
-    handleSubmit,
-    // formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   return (
