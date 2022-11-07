@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
+import { Navigate } from "react-router";
 import { LoginContext } from "../../context/loginContext";
 import "./Profile.css";
 
 function Profile() {
-  const { user } = useContext(LoginContext);
+  const { user, isLoggedIn } = useContext(LoginContext);
+  if (!isLoggedIn) return <Navigate to="/" />;
   return (
     <div className="profile-container">
       <h1>Profile</h1>

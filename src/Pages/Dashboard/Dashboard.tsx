@@ -1,15 +1,11 @@
-import React, { useContext, useEffect } from "react";
-import { useNavigate } from "react-router";
+import React, { useContext } from "react";
+import { Navigate } from "react-router-dom";
 import { LoginContext } from "../../context/loginContext";
 import "./Dashboard.css";
 
 function Dashboard() {
   const { isLoggedIn } = useContext(LoginContext);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isLoggedIn) navigate("/");
-  }, [isLoggedIn, navigate]);
+  if (!isLoggedIn) return <Navigate to="/" />;
   return (
     <div className="dashboard-container">
       <div className="dashboardPage">
